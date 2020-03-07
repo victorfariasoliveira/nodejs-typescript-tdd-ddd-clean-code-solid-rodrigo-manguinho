@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/victorfariasoliveira/Express-with-TDD/issues"
   },
-  "homepage": "https://github.com/victorfariasoliveira/Express-with-TDD#readme"
+  "homepage": "https://github.com/victorfariasoliveira/Express-with-TDD#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^2.4.2"
+  }
 }
