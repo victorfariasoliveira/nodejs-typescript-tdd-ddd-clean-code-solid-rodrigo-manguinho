@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "module": "CommonJS",
+        "target": "ES2019",
+        "esModuleInterop": true, //¹
+        "allowJs": true
+    }
+
+    /*
+    * ¹ => caso haja módulos escritos com import e export, serão convertidos para require
+    */
+}
