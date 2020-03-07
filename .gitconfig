@@ -3,5 +3,5 @@
 [alias]
 	s = !git status -s #mostra o status de forma reduzida
 	c = !git add --all && git commit -m
-	l = !git log --pretty=format: '%C(yellow)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr 
+	l = !git log --pretty=format: '%C(yellow)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
 	#%h -> hash reduzido | %d -> branch e/ou tag | %s titulo do commit | %cn -> autor do commit
