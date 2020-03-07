@@ -1,0 +1,20 @@
+{
+  "name": "Express-with-TDD",
+  "version": "1.0.0",
+  "description": "Repo para conter uma API criada sobre o NodeJS com desenvolvimento orientado a testes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorfariasoliveira/Express-with-TDD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorfariasoliveira/Express-with-TDD/issues"
+  },
+  "homepage": "https://github.com/victorfariasoliveira/Express-with-TDD#readme"
+}
