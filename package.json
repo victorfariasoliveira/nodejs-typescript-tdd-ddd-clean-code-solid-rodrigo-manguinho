@@ -4,8 +4,8 @@
   "description": "Repo para conter uma API criada sobre o NodeJS com desenvolvimento orientado a testes",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:staged": "jest"
+    "test": "jest --passWithNoTest",
+    "test:staged": "jest --passWithNoTest"
   },
   "repository": {
     "type": "git",
