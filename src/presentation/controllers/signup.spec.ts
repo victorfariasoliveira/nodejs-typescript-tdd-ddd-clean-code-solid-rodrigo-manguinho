@@ -13,7 +13,7 @@ describe('SignUp Controller', () => {
     }
     const httpResponse = sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
-    expect(httpResponse.body).toEqual(new MissingParamError('Falta de parametro: Nome'))
+    expect(httpResponse.body).toEqual(new MissingParamError('Nome'))
   })
 })
 
@@ -29,6 +29,6 @@ describe('SignUp Controller', () => {
     }
     const httpResponse = sut.handle(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
-    expect(httpResponse.body).toEqual(new MissingParamError('Falta de parametro: Email'))
+    expect(httpResponse.body).toEqual(new MissingParamError('Email'))
   })
 })
