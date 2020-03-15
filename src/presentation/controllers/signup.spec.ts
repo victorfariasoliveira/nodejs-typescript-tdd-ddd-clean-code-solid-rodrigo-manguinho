@@ -106,4 +106,22 @@ describe('SignUp Controller', () => {
   })
 })
 
+
+describe('SignUp Controller', () => {
+  test('Deve chamar o EmailValidator com o email correto', () => {
+    const { sut, emailValidatorStub } = makeSut()
+    const isValidSpy = jest.spyOn(emailValidatorStub, 'isValid')
+
+    const httpRequest = {
+      body: {
+        name: 'qualquer_nome',
+        email: 'qualquer_email@gmail.com',
+        password: '112233',
+        passwordConfirmation: '112233'
+      }
+    }
+    sut.handle(httpRequest)
+    expect(isValidSpy).toHaveBeenCalledWith('qualquer_email@gmail.com')
+  })
+})
 // ¹ => Stub é um tipo de Mock
