@@ -1,6 +1,7 @@
 import { SignUpController } from './signup'
-import { MissingParamError } from '../errors/missingParamError'
-import { InvalidParamError } from '../errors/invalidParamError'
+import { MissingParamError } from '../errors/missing-param-error'
+import { InvalidParamError } from '../errors/invalid-param-error'
+import { ServerError } from '../errors/server-error'
 import { EmailValidator } from '../protocols/email-validator'
 
 interface SutTypes {
@@ -106,7 +107,6 @@ describe('SignUp Controller', () => {
   })
 })
 
-
 describe('SignUp Controller', () => {
   test('Deve chamar o EmailValidator com o email correto', () => {
     const { sut, emailValidatorStub } = makeSut()
@@ -124,4 +124,30 @@ describe('SignUp Controller', () => {
     expect(isValidSpy).toHaveBeenCalledWith('qualquer_email@gmail.com')
   })
 })
+
+describe('SignUp Controller', () => {
+  test('Deve retornar 500 se o EmailValidator retornar uma excessão', () => {
+    class EmailValidatorStub implements EmailValidator {
+      isValid (email: string): boolean {
+        throw new Error()
+      }
+    }
+
+    const emailValidatorStub = new EmailValidatorStub()
+    const sut = new SignUpController(emailValidatorStub)
+
+    const httpRequest = {
+      body: {
+        name: 'qualquer_nome',
+        email: 'qualquer_email@gmail.com',
+        password: '112233',
+        passwordConfirmation: '112233'
+      }
+    }
+    const httpResponse = sut.handle(httpRequest)
+    expect(httpResponse.statusCode).toBe(500)
+    expect(httpResponse.body).toEqual(new ServerError())
+  })
+})
+
 // ¹ => Stub é um tipo de Mock
