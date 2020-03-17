@@ -128,6 +128,23 @@ describe('SignUp Controller', () => {
 })
 
 describe('SignUp Controller', () => {
+  test('Deve retornar 400 se a confirmação de password falhar', () => {
+    const { sut } = makeSut()
+    const httpRequest = {
+      body: {
+        name: 'qualquer_nome',
+        email: 'qualquer_email@gmail.com',
+        password: '112233',
+        passwordConfirmation: 'invalid_password'
+      }
+    }
+    const httpResponse = sut.handle(httpRequest)
+    expect(httpResponse.statusCode).toBe(400)
+    expect(httpResponse.body).toEqual(new InvalidParamError('passwordConfirmation'))
+  })
+})
+
+describe('SignUp Controller', () => {
   test('Deve retornar 500 se o EmailValidator retornar uma excessão', () => {
     const { sut, emailValidatorStub } = makeSut()
     jest.spyOn(emailValidatorStub, 'isValid').mockImplementationOnce(() => {
