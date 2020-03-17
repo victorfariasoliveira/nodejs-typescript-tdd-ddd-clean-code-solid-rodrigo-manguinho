@@ -1,3 +1,3 @@
+// atalho para protocolos genéricos (qualquer controlador)
 export * from './controller'
-export * from './email-validator'
 export * from './http'
