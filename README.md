@@ -36,7 +36,7 @@ npm run test:verbose
 npm run test:unit
 ```
 
-#### Testes Integração
+#### Testes integração
 
 ```sh
 npm run test:integration
